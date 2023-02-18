@@ -53,7 +53,7 @@ function calculateScore(thisCard){
     return cardScore;
 }
 
-while (totalGameScore <= winningScore) {
+while (totalGameScore < winningScore) {
     playGame();
 }
 
