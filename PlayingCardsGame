@@ -7,7 +7,7 @@ const clubValue = 3;
 const diamondValue = 4;
 
 
-
+//Function that loops through game promts and displays latest score update
 function playGame(){
     let card = inputCard();
     let score = calculateScore(card);
@@ -15,6 +15,7 @@ function playGame(){
     document.write("Your score is "+totalGameScore);
 }
 
+//Function that prompts the user for card value and suite
 function inputCard(){
     let value = prompt("What is card value ");
     if(value != "K" && value != "Q" && value != "J" && value != "A"){
@@ -28,7 +29,11 @@ function inputCard(){
     return latestCard;
 }
 
+//Function that calculates score
+//**params** thisCard: object that contains the card value and suite
 function calculateScore(thisCard){
+    //Finding the card score
+    //If the user enters in a A-J, then we need to give a numerical value
     let cardScore = 0;
     if(thisCard.value == "K" || thisCard.value == "Q" || thisCard.value == "J" || thisCard.value == "A"){
         cardScore = 10;
@@ -49,12 +54,17 @@ function calculateScore(thisCard){
         suiteScore = clubValue;
     }
     
+    //Total up the final card score
     cardScore = cardScore + suiteScore;
     return cardScore;
 }
 
+//While loop that decides if we should keep playing the game
 while (totalGameScore < winningScore) {
     playGame();
 }
 
+//Winners Statement
+//Could this be in a function? Maybe have the statement as a variable at the top?
+//Maybe prompt the user for their name at the beginning of the game and then display it when they win?
 document.write("You've won!!!");
