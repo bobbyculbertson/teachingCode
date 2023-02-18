@@ -30,7 +30,7 @@ function inputCard(){
 
 function calculateScore(thisCard){
     let cardScore = 0;
-    if(thisCard.value == "K" || thisCard.value == "Q" || thisCard.value == "J" || thisCard.Value == "A"){
+    if(thisCard.value == "K" || thisCard.value == "Q" || thisCard.value == "J" || thisCard.value == "A"){
         cardScore = 10;
     } else {
         cardScore = thisCard.value;
