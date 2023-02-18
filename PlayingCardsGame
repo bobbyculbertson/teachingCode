@@ -1,0 +1,60 @@
+//Global variables that will change
+let totalGameScore = 0;
+const winningScore = 50;
+const heartValue = 1;
+const spadeValue = 2;
+const clubValue = 3;
+const diamondValue = 4;
+
+
+
+function playGame(){
+    let card = inputCard();
+    let score = calculateScore(card);
+    totalGameScore = totalGameScore + score;
+    document.write("Your score is "+totalGameScore);
+}
+
+function inputCard(){
+    let value = prompt("What is card value ");
+    if(value != "K" && value != "Q" && value != "J" && value != "A"){
+        value = parseInt(value);
+    }
+    const suite = prompt("What is the suite ");
+    const latestCard = {
+        "value":value,
+        "suite":suite
+    }
+    return latestCard;
+}
+
+function calculateScore(thisCard){
+    let cardScore = 0;
+    if(thisCard.value == "K" || thisCard.value == "Q" || thisCard.value == "J" || thisCard.Value == "A"){
+        cardScore = 10;
+    } else {
+        cardScore = thisCard.value;
+    }
+    //Assigning the suite to it's assigned value
+    //What happens if user inputs 'hearts' instead of 'Hearts'?
+    let suiteScore = 0;
+    
+    if(thisCard.suite == "Hearts"){
+        suiteScore = heartValue;
+    } else if(thisCard.suite == "Diamonds"){
+        suiteScore = diamondValue;
+    } else if(thisCard.suite == "Spades"){
+        suiteScore = spadeValue;
+    } else if(thisCard.suite == "Clubs"){
+        suiteScore = clubValue;
+    }
+    
+    cardScore = cardScore + suiteScore;
+    return cardScore;
+}
+
+while (totalGameScore <= winningScore) {
+    playGame();
+}
+
+document.write("You've won!!!");
