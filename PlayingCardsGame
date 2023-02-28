@@ -1,3 +1,6 @@
+//*** 2/25 presentation
+//*** Girls used https://www.programiz.com/javascript/online-compiler/ for running code
+
 //Global variables that will change
 let totalGameScore = 0;
 const winningScore = 50;
